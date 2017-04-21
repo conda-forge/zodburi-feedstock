@@ -2,8 +2,8 @@
 {%set version = "2.2.1" %}
 {%set compress_type = "tar.gz" %}
 {%set hash_type = "sha256" %}
-{%set hash_val = "3496a68a1548b39f55873980cf491e9ae95ca64cca66a619d44634f063f11582" %}
-{%set build_num = "0" %}
+{%set hash = "3496a68a1548b39f55873980cf491e9ae95ca64cca66a619d44634f063f11582" %}
+{%set build = 0 %}
 
 package:
   name: {{ name|lower }}
@@ -12,11 +12,16 @@ package:
 source:
   fn: {{ name }}-{{ version }}.{{ compress_type }}
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
-  {{ hash_type }}: {{ hash_val }}
+  {{ hash_type }}: {{ hash }}
 
 build:
-  number: {{ build_num }}
+  number: {{ build }}
   script: python setup.py install --single-version-externally-managed --record=record.txt
+  entry_points:
+    - zeo = zodburi.resolvers:client_storage_resolver
+    - file = zodburi.resolvers:file_storage_resolver
+    - zconfig = zodburi.resolvers:zconfig_resolver
+    - memory = zodburi.resolvers:mapping_storage_resolver
 
 requirements:
   build:
@@ -25,7 +30,9 @@ requirements:
 
   run:
     - python
-    - setuptools
+    - zodb
+    - zconfig
+    - zeo
 
 test:
   imports:
@@ -34,7 +41,7 @@ test:
 about:
   home: https://github.com/Pylons/zodburi
   license: ZPL 2.1
-  # license_file: No MANIFEST.in
+  license_file: {{ RECIPE_DIR }}/LICENSE.txt
   license_family: Other
   summary: 'Construct ZODB storage instances from URIs.'
   doc_url: https://zodburi.readthedocs.io/en/latest/
