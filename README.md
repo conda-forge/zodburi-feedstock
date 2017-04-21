@@ -14,9 +14,9 @@ Summary: Construct ZODB storage instances from URIs.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/zodburi-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/zodburi-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/zodburi-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/zodburi-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/zodburi-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/zodburi-feedstock/branch/master)
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/tmp9wdtx_1q-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/tmp9wdtx_1q-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/tmp9wdtx_1q-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/tmp9wdtx_1q-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/tmp9wdtx_1q-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/tmp9wdtx-1q-feedstock/branch/master)
 
 Current release info
 ====================
