@@ -1,8 +1,8 @@
 {% set name = "zodburi" %}
-{% set version = "2.0" %}
+{% set version = "2.2.2" %}
 {% set bundle = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash = "c04b9beca032bb7b968a3464417596ba4607a927c5e65929860962ddba1cccc0" %}
+{% set hash = "535c156230983ff31d878aa1bc451a4891757fe05d3e499e7ed5f363e7cccc42" %}
 {% set build = 0 %}
 
 package:
