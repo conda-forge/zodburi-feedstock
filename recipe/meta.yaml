@@ -33,7 +33,6 @@ requirements:
 test:
   imports:
     - zodburi
-    - zodburi.tests
 
 about:
   home: https://github.com/Pylons/zodburi
