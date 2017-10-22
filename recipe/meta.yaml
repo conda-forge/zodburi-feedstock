@@ -1,8 +1,8 @@
 {% set name = "zodburi" %}
-{% set version = "2.2.2" %}
+{% set version = "2.3.0" %}
 {% set bundle = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash = "535c156230983ff31d878aa1bc451a4891757fe05d3e499e7ed5f363e7cccc42" %}
+{% set hash = "4c796b376e5f012466df23bc4cd79206744a314921b9ee1d4869bb09dae34797" %}
 {% set build = 0 %}
 
 package:
@@ -15,6 +15,13 @@ source:
   {{ hash_type }}: {{ hash }}
 
 build:
+  noarch: python
+  entry_points:
+    - zeo = zodburi.resolvers:client_storage_resolver
+    - file = zodburi.resolvers:file_storage_resolver
+    - zconfig = zodburi.resolvers:zconfig_resolver
+    - memory = zodburi.resolvers:mapping_storage_resolver
+    
   number: {{ build }}
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
@@ -33,6 +40,12 @@ requirements:
 test:
   imports:
     - zodburi
+  
+  commands:
+    - zeo
+    - file
+    - zconfig
+    - memory
 
 about:
   home: https://github.com/Pylons/zodburi
