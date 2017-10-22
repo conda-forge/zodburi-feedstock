@@ -16,7 +16,7 @@ source:
 
 build:
   noarch: python
-  entry_point:
+  entry_points:
     - zeo = zodburi.resolvers:client_storage_resolver
     - file = zodburi.resolvers:file_storage_resolver
     - zconfig = zodburi.resolvers:zconfig_resolver
