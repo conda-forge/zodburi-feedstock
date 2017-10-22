@@ -40,6 +40,12 @@ requirements:
 test:
   imports:
     - zodburi
+  
+  commands:
+    - zeo
+    - file
+    - zconfig
+    - memory
 
 about:
   home: https://github.com/Pylons/zodburi
