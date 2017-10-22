@@ -15,6 +15,13 @@ source:
   {{ hash_type }}: {{ hash }}
 
 build:
+  noarch: python
+  entry_point:
+    - zeo = zodburi.resolvers:client_storage_resolver
+    - file = zodburi.resolvers:file_storage_resolver
+    - zconfig = zodburi.resolvers:zconfig_resolver
+    - memory = zodburi.resolvers:mapping_storage_resolver
+    
   number: {{ build }}
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
