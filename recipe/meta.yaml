@@ -3,7 +3,7 @@
 {% set bundle = "tar.gz" %}
 {% set hash_type = "sha256" %}
 {% set hash = "e4b6eb3c190effcec05462b6276eceae5d2c42560b191909f9d5871784d28b04" %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 package:
   name: {{ name|lower }}
@@ -21,11 +21,11 @@ build:
 
 requirements:
   build:
-    - python
+    - python >=3.6
     - setuptools
 
   run:
-    - python
+    - python >=3.6
     - setuptools
     - zodb
     - zconfig
@@ -47,3 +47,4 @@ about:
 extra:
   recipe-maintainers:
     - pmlandwehr
+    - jan-janssen
