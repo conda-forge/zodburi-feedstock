@@ -1,26 +1,22 @@
 {% set name = "zodburi" %}
-{% set version = "2.4.0" %}
-{% set bundle = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash = "e4b6eb3c190effcec05462b6276eceae5d2c42560b191909f9d5871784d28b04" %}
-{% set build = 1 %}
+{% set version = "2.5.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ bundle }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 5a7d7c68f83af27e3cec75d69a8136ef13e84a569c451885ffcbdd6371c63254
 
 build:
   noarch: python
-  number: {{ build }}
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
-  build:
+  host:
+    - pip
     - python >=3.6
     - setuptools
 
@@ -34,11 +30,15 @@ requirements:
 test:
   imports:
     - zodburi
+  commands:
+    - pip check
+  requires: 
+    - pip
 
 about:
   home: https://github.com/Pylons/zodburi
   license_file: LICENSE.txt
-  license: ZPL 2.1
+  license: ZPL-2.1
   license_family: Other
   summary: 'Construct ZODB storage instances from URIs.'
   doc_url: https://zodburi.readthedocs.io/en/latest/
