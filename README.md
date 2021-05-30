@@ -3,7 +3,7 @@ About zodburi
 
 Home: https://github.com/Pylons/zodburi
 
-Package license: ZPL 2.1
+Package license: ZPL-2.1
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/zodburi-feedstock/blob/master/LICENSE.txt)
 
