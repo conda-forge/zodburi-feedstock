@@ -1,5 +1,5 @@
 {% set name = "zodburi" %}
-{% set version = "2.5.0" %}
+{% set version = "2.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5a7d7c68f83af27e3cec75d69a8136ef13e84a569c451885ffcbdd6371c63254
+  sha256: 62ef5ca8226f4649e721cd07ac7070a6fce16791a1b1abe57e6a2a6bde7fdbb0
 
 build:
   noarch: python
@@ -32,7 +32,7 @@ test:
     - zodburi
   commands:
     - pip check
-  requires: 
+  requires:
     - pip
 
 about:
@@ -40,7 +40,7 @@ about:
   license_file: LICENSE.txt
   license: ZPL-2.1
   license_family: Other
-  summary: 'Construct ZODB storage instances from URIs.'
+  summary: Construct ZODB storage instances from URIs.
   doc_url: https://zodburi.readthedocs.io/en/latest/
   dev_url: https://github.com/Pylons/zodburi
 
