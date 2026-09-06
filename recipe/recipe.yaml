@@ -1,0 +1,49 @@
+schema_version: 1
+
+context:
+  name: zodburi
+  version: "3.0.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: 4359b964dffdae1e56a19124108d89f3730d15417260f828403cf05d6533cc41
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - setuptools
+    - zodb
+    - zconfig
+    - zeo
+
+tests:
+  - python:
+      imports:
+        - zodburi
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  license_file: LICENSE.txt
+  license: ZPL-2.1
+  summary: Construct ZODB storage instances from URIs.
+  homepage: https://github.com/Pylons/zodburi
+  repository: https://github.com/Pylons/zodburi
+  documentation: https://zodburi.readthedocs.io/en/latest/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
